@@ -26,7 +26,7 @@ app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(swaggerDocs));
  *     description: Get all books
  *     responses:
  *       200:
- *          description" Success
+ *         description" Success
  * 
  */
 app.get('/books',(req, res) =>{
@@ -36,6 +36,25 @@ app.get('/books',(req, res) =>{
             title : "Harry Potter"
         }
     ])
+});
+/**
+ * @swagger
+ * /books:
+ *   post:
+ *     description: Create new book
+ *     paramaters:
+ *      - name: title
+ *        description: title of the book
+ *        in: formData
+ *        required: true
+ *        type: String
+ *   responses:
+ *       201:
+ *          description: Created
+ * 
+ */
+app.post('/books', () =>{
+    res.status(201).send();
 });
 
 
