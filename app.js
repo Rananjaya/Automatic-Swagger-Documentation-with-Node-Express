@@ -4,14 +4,14 @@ const swaggerUI = require('swagger-ui-express');
 
 const app = express();
 
-const swaggerOptions = {
-    swaggerDefinition : {
+const swaggerOptions = {  // create swagger options
+    swaggerDefinition : { // this conatins some information abouth swagger this application
         info: {
             title: 'Lib API',
             version: '1.0.0'
         }
     },
-    apis: ['app.js'],
+    apis: ['app.js'], // use tho tell the swagger where the documantion need to loaded
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -26,8 +26,7 @@ app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(swaggerDocs));
  *     description: Get all books
  *     responses:
  *       200:
- *         
- * description" Success
+ *         description" Success
  * 
  */
 app.get('/books',(req, res) =>{
@@ -50,9 +49,9 @@ app.get('/books',(req, res) =>{
  *        required: true
  *        type: string
  *       
- *   responses:
+ *     responses:
  *       201:
- *          description: Created
+ *         description: Created
  * 
  */
 app.post('/books', (req, res) =>{
